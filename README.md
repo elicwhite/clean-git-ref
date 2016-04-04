@@ -18,5 +18,5 @@ $ npm install clean-git-ref --save-dev
 ```
 var cleanGitRef = require('clean-git-ref');
 
-assert.stricEqual(cleanGitRef.clean('bad git ref formats/'), bad-git-ref-formats');
+assert.strictEqual(cleanGitRef.clean('bad git ref formats/'), bad-git-ref-formats');
 ```
