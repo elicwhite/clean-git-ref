@@ -1,5 +1,7 @@
 # clean-git-ref
 
+[![Build Status](https://travis-ci.org/TheSavior/clean-git-ref.svg)](https://travis-ci.org/TheSavior/clean-git-ref)
+
 Clean an input string into a usable git ref. 
 
 For more reference, read https://git-scm.com/docs/git-check-ref-format
