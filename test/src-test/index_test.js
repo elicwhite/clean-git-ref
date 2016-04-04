@@ -41,6 +41,20 @@ describe('CleanGitRef', function() {
       });
     });
 
-    assertOutputAndVerifyValid('^0.2.3', '0.2.3');
+    assertOutputAndVerifyValid('foo./bar', 'foo/bar');
+    assertOutputAndVerifyValid('foo..bar', 'foo.bar');
+    assertOutputAndVerifyValid('foo bar', 'foo-bar');
+    assertOutputAndVerifyValid('foo~bar', 'foo-bar');
+    assertOutputAndVerifyValid('foo^bar', 'foo-bar');
+    assertOutputAndVerifyValid('foo:bar', 'foo-bar');
+    assertOutputAndVerifyValid('foo?bar', 'foo-bar');
+    assertOutputAndVerifyValid('foo*bar', 'foo-bar');
+    assertOutputAndVerifyValid('foo-bar/', 'foo-bar');
+    assertOutputAndVerifyValid('foo/bar/', 'foo/bar');
+    assertOutputAndVerifyValid('foo/bar.', 'foo/bar');
+    assertOutputAndVerifyValid('foo/bar.lock.', 'foo/bar');
+    assertOutputAndVerifyValid('foo/bar.lock', 'foo/bar');
+    assertOutputAndVerifyValid('foo@{bar', 'foo-bar');
+    assertOutputAndVerifyValid('foo\\bar', 'foo-bar');
   });
 });
