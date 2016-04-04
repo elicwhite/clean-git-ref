@@ -29,6 +29,20 @@ function assertOutputAndVerifyValid(input, output) {
 
 describe('CleanGitRef', function() {
   describe('clean', function() {
+    it('should throw if given a non string', function() {
+      assert.throws(function() {
+        cleanGitRef.clean(4);
+      });
+
+      assert.throws(function() {
+        cleanGitRef.clean({});
+      });
+
+      assert.throws(function() {
+        cleanGitRef.clean([]);
+      });
+    });
+
     assertOutputAndVerifyValid('^0.2.3', '0.2.3');
   });
 });
