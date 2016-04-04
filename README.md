@@ -20,10 +20,3 @@ var cleanGitRef = require('clean-git-ref');
 
 assert.stricEqual(cleanGitRef.clean('bad git ref formats/'), bad-git-ref-formats');
 ```
-
-## CLI Usage
-
-```bash
-> clean-git-ref 'bad git ref formats/'
-bad-git-ref-formats
-```
