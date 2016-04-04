@@ -44,11 +44,27 @@ describe('CleanGitRef', function() {
     assertOutputAndVerifyValid('foo./bar', 'foo/bar');
     assertOutputAndVerifyValid('foo..bar', 'foo.bar');
     assertOutputAndVerifyValid('foo bar', 'foo-bar');
+
+    assertOutputAndVerifyValid('~foo', 'foo');
+    assertOutputAndVerifyValid('^foo', 'foo');
+    assertOutputAndVerifyValid(':foo', 'foo');
+    assertOutputAndVerifyValid('?foo', 'foo');
+    assertOutputAndVerifyValid('*foo', 'foo');
+    assertOutputAndVerifyValid('-foo', 'foo');
+
+    assertOutputAndVerifyValid('foo~', 'foo');
+    assertOutputAndVerifyValid('foo^', 'foo');
+    assertOutputAndVerifyValid('foo:', 'foo');
+    assertOutputAndVerifyValid('foo?', 'foo');
+    assertOutputAndVerifyValid('foo*', 'foo');
+    assertOutputAndVerifyValid('foo-', 'foo');
+
     assertOutputAndVerifyValid('foo~bar', 'foo-bar');
     assertOutputAndVerifyValid('foo^bar', 'foo-bar');
     assertOutputAndVerifyValid('foo:bar', 'foo-bar');
     assertOutputAndVerifyValid('foo?bar', 'foo-bar');
     assertOutputAndVerifyValid('foo*bar', 'foo-bar');
+
     assertOutputAndVerifyValid('foo-bar/', 'foo-bar');
     assertOutputAndVerifyValid('foo/bar/', 'foo/bar');
     assertOutputAndVerifyValid('foo/bar.', 'foo/bar');
