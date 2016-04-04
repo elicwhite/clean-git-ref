@@ -2,6 +2,7 @@
   "extends": "./node_modules/wealthfront-javascript/.eslintrc",
   "parser": "babel-eslint",
   "env": {
-    "node": true
+    "node": true,
+    "es6": true
   }
 }

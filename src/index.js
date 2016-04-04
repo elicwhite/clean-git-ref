@@ -1,5 +1,3 @@
-'use strict';
-
 const CleanGitRef = {
   clean(value) {
     if (typeof value !== 'string') {
