@@ -1,5 +1,3 @@
-'use strict';
-
 const assert = require('chai').assert;
 const spawn = require('child_process').spawn;
 const cleanGitRef = require('../../src/index');
