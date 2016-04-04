@@ -4,7 +4,15 @@ const CleanGitRef = {
       throw new Error('Expected a string, received: ' + value);
     }
 
-    return value.replace(/[^0-9.]+/, '');
+    return value.replace('./', '/')
+    .replace('..', '.')
+    .replace(' ', '-')
+    .replace(/[~^:?*]/, '-')
+    .replace(/[~^:?*\\]/, '-')
+    .replace('@{', '-')
+    .replace(/\.$/, '')
+    .replace(/\/$/, '')
+    .replace(/\.lock$/, '');
   }
 };
 
