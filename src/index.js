@@ -5,7 +5,14 @@ const CleanGitRef = {
     }
 
     return value.replace('./', '/')
-    .replace('..', '.');
+    .replace('..', '.')
+    .replace(' ', '-')
+    .replace(/[~^:?*]/, '-')
+    .replace(/[~^:?*\\]/, '-')
+    .replace('@{', '-')
+    .replace(/\.$/, '')
+    .replace(/\/$/, '')
+    .replace(/\.lock$/, '');
   }
 };
 
