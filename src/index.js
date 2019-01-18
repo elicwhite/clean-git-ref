@@ -5,11 +5,11 @@ function escapeRegExp(string) {
 }
 
 function replaceAll(str, search, replacement) {
-  const s = search instanceof RegExp
+  search = search instanceof RegExp
       ? search
-      : escapeRegExp(search);
+      : new RegExp(escapeRegExp(search), 'g');
 
-  return str.replace(new RegExp(s, 'g'), replacement);
+  return str.replace(search, replacement);
 }
 
 const CleanGitRef = {
@@ -21,13 +21,13 @@ const CleanGitRef = {
     value = replaceAll(value, './', '/');
     value = replaceAll(value, '..', '.');
     value = replaceAll(value, ' ', '-');
-    value = replaceAll(value, /^[~^:?*\\\-]/, '');
-    value = replaceAll(value, /[~^:?*\\]/, '-');
-    value = replaceAll(value, /[~^:?*\\\-]$/, '');
+    value = replaceAll(value, /^[~^:?*\\\-]/g, '');
+    value = replaceAll(value, /[~^:?*\\]/g, '-');
+    value = replaceAll(value, /[~^:?*\\\-]$/g, '');
     value = replaceAll(value, '@{', '-');
-    value = replaceAll(value, /\.$/, '');
-    value = replaceAll(value, /\/$/, '');
-    value = replaceAll(value, /\.lock$/, '');
+    value = replaceAll(value, /\.$/g, '');
+    value = replaceAll(value, /\/$/g, '');
+    value = replaceAll(value, /\.lock$/g, '');
     return value;
   }
 };
