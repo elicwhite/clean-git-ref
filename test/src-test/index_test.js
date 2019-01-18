@@ -75,5 +75,6 @@ describe('CleanGitRef', () => {
     assertOutputAndVerifyValid('foo/bar.lock', 'foo/bar');
     assertOutputAndVerifyValid('foo@{bar', 'foo-bar');
     assertOutputAndVerifyValid('foo\\bar', 'foo-bar');
+    assertOutputAndVerifyValid('bad git ref formats/', 'bad-git-ref-formats');
   });
 });
