@@ -52,6 +52,7 @@ describe('CleanGitRef', () => {
     assertOutputAndVerifyValid(':foo', 'foo');
     assertOutputAndVerifyValid('?foo', 'foo');
     assertOutputAndVerifyValid('*foo', 'foo');
+    assertOutputAndVerifyValid('[foo', 'foo');
     assertOutputAndVerifyValid('-foo', 'foo');
 
     assertOutputAndVerifyValid('foo~', 'foo');
@@ -59,6 +60,7 @@ describe('CleanGitRef', () => {
     assertOutputAndVerifyValid('foo:', 'foo');
     assertOutputAndVerifyValid('foo?', 'foo');
     assertOutputAndVerifyValid('foo*', 'foo');
+    assertOutputAndVerifyValid('foo[', 'foo');
     assertOutputAndVerifyValid('foo-', 'foo');
 
     assertOutputAndVerifyValid('foo~bar', 'foo-bar');
@@ -66,6 +68,7 @@ describe('CleanGitRef', () => {
     assertOutputAndVerifyValid('foo:bar', 'foo-bar');
     assertOutputAndVerifyValid('foo?bar', 'foo-bar');
     assertOutputAndVerifyValid('foo*bar', 'foo-bar');
+    assertOutputAndVerifyValid('foo[bar', 'foo-bar');
 
     assertOutputAndVerifyValid('foo-bar/', 'foo-bar');
     assertOutputAndVerifyValid('foo/bar/', 'foo/bar');
